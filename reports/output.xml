@@ -1,0 +1,832 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.10.12 on linux)" generated="20231031 16:09:32.234" rpa="false" schemaversion="4">
+<suite id="s1" name="Tests" source="/home/idd_lsoares/Desktop/robot-test/tests">
+<suite id="s1-s1" name="Login" source="/home/idd_lsoares/Desktop/robot-test/tests/Login">
+<suite id="s1-s1-s1" name="Login" source="/home/idd_lsoares/Desktop/robot-test/tests/Login/login.robot">
+<kw name="Abrir o site da Thinking Test Center" library="common_keywords" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${LOGIN URL}</arg>
+<arg>${BROWSER}</arg>
+<arg>options=${BROWSER_OPTIONS}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231031 16:09:32.945" level="INFO">Opening browser 'Chrome' to base url 'https://thinking-tester-contact-list.herokuapp.com'.</msg>
+<status status="PASS" starttime="20231031 16:09:32.943" endtime="20231031 16:09:35.200"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20231031 16:09:35.201" endtime="20231031 16:09:35.305"/>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Contact List App</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20231031 16:09:35.313" level="INFO">Page title is 'Contact List App'.</msg>
+<status status="PASS" starttime="20231031 16:09:35.306" endtime="20231031 16:09:35.314"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:32.943" endtime="20231031 16:09:35.314"/>
+</kw>
+<test id="s1-s1-s1-t1" name="Cenário 1: Deve realizar login com sucesso" line="15">
+<kw name="Dado que o usuário esteja na página do Automationtesting" library="login_keyworks">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Contact List App</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20231031 16:09:35.322" level="INFO">Page title is 'Contact List App'.</msg>
+<status status="PASS" starttime="20231031 16:09:35.316" endtime="20231031 16:09:35.322"/>
+</kw>
+<kw name="Clicar para cadastrar conta" library="login_keyworks">
+<kw name="Click If Element Is Visible" library="common_keywords">
+<arg>${BTN_SIGNUP}</arg>
+<kw name="Mouse Over If Element Is Visible" library="common_keywords">
+<arg>${element_locator}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231031 16:09:35.324" endtime="20231031 16:09:35.371"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20231031 16:09:35.372" level="INFO">Simulating Mouse Over on element 'id:signup'.</msg>
+<status status="PASS" starttime="20231031 16:09:35.371" endtime="20231031 16:09:35.648"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:35.323" endtime="20231031 16:09:35.649"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231031 16:09:35.650" level="INFO">Clicking element 'id:signup'.</msg>
+<status status="PASS" starttime="20231031 16:09:35.649" endtime="20231031 16:09:35.956"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:35.323" endtime="20231031 16:09:35.956"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:35.322" endtime="20231031 16:09:35.956"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:35.316" endtime="20231031 16:09:35.956"/>
+</kw>
+<kw name="Quando inserir dados válidos para cadastro" library="login_keyworks">
+<kw name="First Name" library="FakerLibrary">
+<var>${firstName}</var>
+<msg timestamp="20231031 16:09:35.957" level="INFO">${firstName} = Maria Julia</msg>
+<status status="PASS" starttime="20231031 16:09:35.957" endtime="20231031 16:09:35.958"/>
+</kw>
+<kw name="Last Name" library="FakerLibrary">
+<var>${lastName}</var>
+<msg timestamp="20231031 16:09:35.958" level="INFO">${lastName} = Nunes</msg>
+<status status="PASS" starttime="20231031 16:09:35.958" endtime="20231031 16:09:35.958"/>
+</kw>
+<kw name="Email" library="FakerLibrary">
+<var>${email}</var>
+<msg timestamp="20231031 16:09:35.959" level="INFO">${email} = igor92@example.net</msg>
+<status status="PASS" starttime="20231031 16:09:35.958" endtime="20231031 16:09:35.959"/>
+</kw>
+<kw name="Password" library="FakerLibrary">
+<var>${password}</var>
+<doc>Generate a random password of the specified ``length``.</doc>
+<msg timestamp="20231031 16:09:35.959" level="INFO">${password} = 3giP7J%EB#</msg>
+<status status="PASS" starttime="20231031 16:09:35.959" endtime="20231031 16:09:35.959"/>
+</kw>
+<kw name="Adicionar dados para cadastro" library="login_keyworks">
+<arg>${firstName}</arg>
+<arg>${lastName}</arg>
+<arg>${email}</arg>
+<arg>${password}</arg>
+<kw name="Input Text If Element Is Visible" library="common_keywords">
+<arg>${INPUT_FIRSTNAME}</arg>
+<arg>${firstName}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231031 16:09:35.961" endtime="20231031 16:09:36.013"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231031 16:09:36.015" level="INFO">Typing text 'Maria Julia' into text field 'id:firstName'.</msg>
+<status status="PASS" starttime="20231031 16:09:36.013" endtime="20231031 16:09:36.241"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:35.960" endtime="20231031 16:09:36.241"/>
+</kw>
+<kw name="Input Text If Element Is Visible" library="common_keywords">
+<arg>${INPUT_LASTNAME}</arg>
+<arg>${lastName}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231031 16:09:36.242" endtime="20231031 16:09:36.275"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231031 16:09:36.276" level="INFO">Typing text 'Nunes' into text field 'id:lastName'.</msg>
+<status status="PASS" starttime="20231031 16:09:36.275" endtime="20231031 16:09:36.369"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:36.242" endtime="20231031 16:09:36.369"/>
+</kw>
+<kw name="Input Text If Element Is Visible" library="common_keywords">
+<arg>${INPUT_EMAIL}</arg>
+<arg>${email}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231031 16:09:36.370" endtime="20231031 16:09:36.399"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231031 16:09:36.400" level="INFO">Typing text 'igor92@example.net' into text field 'id:email'.</msg>
+<status status="PASS" starttime="20231031 16:09:36.399" endtime="20231031 16:09:36.495"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:36.369" endtime="20231031 16:09:36.495"/>
+</kw>
+<kw name="Input Text If Element Is Visible" library="common_keywords">
+<arg>${INPUT_PASSWORD}</arg>
+<arg>${password}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231031 16:09:36.496" endtime="20231031 16:09:36.527"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231031 16:09:36.528" level="INFO">Typing text '3giP7J%EB#' into text field 'id:password'.</msg>
+<status status="PASS" starttime="20231031 16:09:36.527" endtime="20231031 16:09:36.633"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:36.495" endtime="20231031 16:09:36.633"/>
+</kw>
+<kw name="Click If Element Is Visible" library="common_keywords">
+<arg>${BTN_SUBMIT}</arg>
+<kw name="Mouse Over If Element Is Visible" library="common_keywords">
+<arg>${element_locator}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231031 16:09:36.634" endtime="20231031 16:09:36.664"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20231031 16:09:36.665" level="INFO">Simulating Mouse Over on element 'id:submit'.</msg>
+<status status="PASS" starttime="20231031 16:09:36.664" endtime="20231031 16:09:36.938"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:36.634" endtime="20231031 16:09:36.938"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231031 16:09:36.939" level="INFO">Clicking element 'id:submit'.</msg>
+<status status="PASS" starttime="20231031 16:09:36.938" endtime="20231031 16:09:37.011"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:36.633" endtime="20231031 16:09:37.011"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:35.959" endtime="20231031 16:09:37.011"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:35.956" endtime="20231031 16:09:37.012"/>
+</kw>
+<kw name="Então o usuário deve ser cadastrado com sucesso" library="login_keyworks">
+<kw name="Validar se usuário é redirecionado para contact list" library="login_keyworks">
+<arg>Click on any contact to view the Contact Details</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${BTN_LOGOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231031 16:09:37.013" endtime="20231031 16:09:37.577"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<arg>${HEADER}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" starttime="20231031 16:09:37.577" endtime="20231031 16:09:37.618"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${HEADER}</arg>
+<arg>${text}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20231031 16:09:37.619" level="INFO">Verifying element 'css:body &gt; div &gt; p:nth-child(2)' contains exact text 'Click on any contact to view the Contact Details'.</msg>
+<status status="PASS" starttime="20231031 16:09:37.618" endtime="20231031 16:09:37.646"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:37.012" endtime="20231031 16:09:37.646"/>
+</kw>
+<kw name="Validar se botão de logout é exibido" library="login_keyworks">
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${BTN_LOGOUT}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20231031 16:09:37.671" level="INFO">Element 'id:logout' is displayed.</msg>
+<status status="PASS" starttime="20231031 16:09:37.647" endtime="20231031 16:09:37.671"/>
+</kw>
+<kw name="Click If Element Is Visible" library="common_keywords">
+<arg>${BTN_LOGOUT}</arg>
+<kw name="Mouse Over If Element Is Visible" library="common_keywords">
+<arg>${element_locator}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231031 16:09:37.673" endtime="20231031 16:09:37.710"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20231031 16:09:37.712" level="INFO">Simulating Mouse Over on element 'id:logout'.</msg>
+<status status="PASS" starttime="20231031 16:09:37.710" endtime="20231031 16:09:37.997"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:37.672" endtime="20231031 16:09:37.998"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231031 16:09:37.999" level="INFO">Clicking element 'id:logout'.</msg>
+<status status="PASS" starttime="20231031 16:09:37.998" endtime="20231031 16:09:38.276"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:37.672" endtime="20231031 16:09:38.276"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:37.646" endtime="20231031 16:09:38.276"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:37.012" endtime="20231031 16:09:38.276"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:35.314" endtime="20231031 16:09:38.277"/>
+</test>
+<test id="s1-s1-s1-t2" name="Cenário 2: Deve exibir erro ao não preencher campos obrigatórios" line="20">
+<kw name="Dado que o usuário esteja na página do Automationtesting" library="login_keyworks">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Contact List App</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20231031 16:09:38.287" level="INFO">Page title is 'Contact List App'.</msg>
+<status status="PASS" starttime="20231031 16:09:38.280" endtime="20231031 16:09:38.287"/>
+</kw>
+<kw name="Clicar para cadastrar conta" library="login_keyworks">
+<kw name="Click If Element Is Visible" library="common_keywords">
+<arg>${BTN_SIGNUP}</arg>
+<kw name="Mouse Over If Element Is Visible" library="common_keywords">
+<arg>${element_locator}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231031 16:09:38.290" endtime="20231031 16:09:38.626"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20231031 16:09:38.627" level="INFO">Simulating Mouse Over on element 'id:signup'.</msg>
+<status status="PASS" starttime="20231031 16:09:38.626" endtime="20231031 16:09:38.914"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:38.289" endtime="20231031 16:09:38.915"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231031 16:09:38.916" level="INFO">Clicking element 'id:signup'.</msg>
+<status status="PASS" starttime="20231031 16:09:38.915" endtime="20231031 16:09:39.196"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:38.289" endtime="20231031 16:09:39.196"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:38.288" endtime="20231031 16:09:39.196"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:38.279" endtime="20231031 16:09:39.197"/>
+</kw>
+<kw name="Quando deixar dados em branco para cadastro" library="login_keyworks">
+<kw name="Clicar em enviar com dados em branco" library="login_keyworks">
+<kw name="Click If Element Is Visible" library="common_keywords">
+<arg>${BTN_SUBMIT}</arg>
+<kw name="Mouse Over If Element Is Visible" library="common_keywords">
+<arg>${element_locator}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231031 16:09:39.200" endtime="20231031 16:09:39.228"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20231031 16:09:39.230" level="INFO">Simulating Mouse Over on element 'id:submit'.</msg>
+<status status="PASS" starttime="20231031 16:09:39.229" endtime="20231031 16:09:39.504"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:39.199" endtime="20231031 16:09:39.504"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231031 16:09:39.505" level="INFO">Clicking element 'id:submit'.</msg>
+<status status="PASS" starttime="20231031 16:09:39.504" endtime="20231031 16:09:39.558"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:39.198" endtime="20231031 16:09:39.558"/>
+</kw>
+<kw name="Click If Element Is Visible" library="common_keywords">
+<arg>${BTN_SUBMIT}</arg>
+<kw name="Mouse Over If Element Is Visible" library="common_keywords">
+<arg>${element_locator}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231031 16:09:39.559" endtime="20231031 16:09:39.583"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20231031 16:09:39.584" level="INFO">Simulating Mouse Over on element 'id:submit'.</msg>
+<status status="PASS" starttime="20231031 16:09:39.583" endtime="20231031 16:09:39.855"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:39.559" endtime="20231031 16:09:39.855"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231031 16:09:39.856" level="INFO">Clicking element 'id:submit'.</msg>
+<status status="PASS" starttime="20231031 16:09:39.855" endtime="20231031 16:09:39.913"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:39.558" endtime="20231031 16:09:39.913"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:39.198" endtime="20231031 16:09:39.913"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:39.197" endtime="20231031 16:09:39.913"/>
+</kw>
+<kw name="Então deve ser exibido alerta com erro" library="login_keyworks">
+<kw name="Verificar se exibe alerta com erro" library="login_keyworks">
+<arg>User validation failed: firstName: Path `firstName` is required., lastName: Path `lastName` is required., email: Email is invalid, password: Path `password` is required.</arg>
+<kw name="Click If Element Is Visible" library="common_keywords">
+<arg>${BTN_SUBMIT}</arg>
+<kw name="Mouse Over If Element Is Visible" library="common_keywords">
+<arg>${element_locator}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231031 16:09:39.916" endtime="20231031 16:09:39.943"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20231031 16:09:39.945" level="INFO">Simulating Mouse Over on element 'id:submit'.</msg>
+<status status="PASS" starttime="20231031 16:09:39.944" endtime="20231031 16:09:40.215"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:39.915" endtime="20231031 16:09:40.216"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231031 16:09:40.217" level="INFO">Clicking element 'id:submit'.</msg>
+<status status="PASS" starttime="20231031 16:09:40.216" endtime="20231031 16:09:40.263"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:39.915" endtime="20231031 16:09:40.263"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${ERROR_ALERT}</arg>
+<arg>${text}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20231031 16:09:40.265" level="INFO">Verifying element 'css:#error' contains exact text 'User validation failed: firstName: Path `firstName` is required., lastName: Path `lastName` is required., email: Email is invalid, password: Path `password` is required.'.</msg>
+<status status="PASS" starttime="20231031 16:09:40.263" endtime="20231031 16:09:40.293"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:39.914" endtime="20231031 16:09:40.293"/>
+</kw>
+<kw name="Deve cancelar cadastro" library="login_keyworks">
+<kw name="Click If Element Is Visible" library="common_keywords">
+<arg>${BTN_CANCEL}</arg>
+<kw name="Mouse Over If Element Is Visible" library="common_keywords">
+<arg>${element_locator}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231031 16:09:40.295" endtime="20231031 16:09:40.327"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20231031 16:09:40.328" level="INFO">Simulating Mouse Over on element 'CSS:#cancel'.</msg>
+<status status="PASS" starttime="20231031 16:09:40.327" endtime="20231031 16:09:40.603"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:40.294" endtime="20231031 16:09:40.604"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231031 16:09:40.605" level="INFO">Clicking element 'CSS:#cancel'.</msg>
+<status status="PASS" starttime="20231031 16:09:40.604" endtime="20231031 16:09:40.888"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:40.294" endtime="20231031 16:09:40.888"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:40.293" endtime="20231031 16:09:40.888"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:39.914" endtime="20231031 16:09:40.888"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:38.278" endtime="20231031 16:09:40.888"/>
+</test>
+<test id="s1-s1-s1-t3" name="Cenário 3: Deve exibir erro ao inserir dados inválidos" line="24">
+<kw name="Dado que o usuário esteja na página do Automationtesting" library="login_keyworks">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Contact List App</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20231031 16:09:40.900" level="INFO">Page title is 'Contact List App'.</msg>
+<status status="PASS" starttime="20231031 16:09:40.891" endtime="20231031 16:09:40.901"/>
+</kw>
+<kw name="Clicar para cadastrar conta" library="login_keyworks">
+<kw name="Click If Element Is Visible" library="common_keywords">
+<arg>${BTN_SIGNUP}</arg>
+<kw name="Mouse Over If Element Is Visible" library="common_keywords">
+<arg>${element_locator}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231031 16:09:40.903" endtime="20231031 16:09:40.930"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20231031 16:09:40.931" level="INFO">Simulating Mouse Over on element 'id:signup'.</msg>
+<status status="PASS" starttime="20231031 16:09:40.930" endtime="20231031 16:09:41.205"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:40.902" endtime="20231031 16:09:41.205"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231031 16:09:41.206" level="INFO">Clicking element 'id:signup'.</msg>
+<status status="PASS" starttime="20231031 16:09:41.205" endtime="20231031 16:09:41.484"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:40.901" endtime="20231031 16:09:41.484"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:40.901" endtime="20231031 16:09:41.484"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:40.890" endtime="20231031 16:09:41.484"/>
+</kw>
+<kw name="Quando preencher campos de cadastro com dados inválidos" library="login_keyworks">
+<kw name="Adicionar dados para cadastro" library="login_keyworks">
+<arg>ç</arg>
+<arg>ç</arg>
+<arg>ç</arg>
+<arg>ç</arg>
+<kw name="Input Text If Element Is Visible" library="common_keywords">
+<arg>${INPUT_FIRSTNAME}</arg>
+<arg>${firstName}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231031 16:09:41.487" endtime="20231031 16:09:41.516"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231031 16:09:41.517" level="INFO">Typing text 'ç' into text field 'id:firstName'.</msg>
+<status status="PASS" starttime="20231031 16:09:41.516" endtime="20231031 16:09:41.615"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:41.486" endtime="20231031 16:09:41.615"/>
+</kw>
+<kw name="Input Text If Element Is Visible" library="common_keywords">
+<arg>${INPUT_LASTNAME}</arg>
+<arg>${lastName}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231031 16:09:41.616" endtime="20231031 16:09:41.641"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231031 16:09:41.642" level="INFO">Typing text 'ç' into text field 'id:lastName'.</msg>
+<status status="PASS" starttime="20231031 16:09:41.641" endtime="20231031 16:09:41.740"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:41.615" endtime="20231031 16:09:41.740"/>
+</kw>
+<kw name="Input Text If Element Is Visible" library="common_keywords">
+<arg>${INPUT_EMAIL}</arg>
+<arg>${email}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231031 16:09:41.741" endtime="20231031 16:09:41.765"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231031 16:09:41.766" level="INFO">Typing text 'ç' into text field 'id:email'.</msg>
+<status status="PASS" starttime="20231031 16:09:41.765" endtime="20231031 16:09:41.859"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:41.740" endtime="20231031 16:09:41.859"/>
+</kw>
+<kw name="Input Text If Element Is Visible" library="common_keywords">
+<arg>${INPUT_PASSWORD}</arg>
+<arg>${password}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231031 16:09:41.860" endtime="20231031 16:09:41.883"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231031 16:09:41.885" level="INFO">Typing text 'ç' into text field 'id:password'.</msg>
+<status status="PASS" starttime="20231031 16:09:41.884" endtime="20231031 16:09:41.969"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:41.859" endtime="20231031 16:09:41.969"/>
+</kw>
+<kw name="Click If Element Is Visible" library="common_keywords">
+<arg>${BTN_SUBMIT}</arg>
+<kw name="Mouse Over If Element Is Visible" library="common_keywords">
+<arg>${element_locator}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231031 16:09:41.971" endtime="20231031 16:09:41.993"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20231031 16:09:41.994" level="INFO">Simulating Mouse Over on element 'id:submit'.</msg>
+<status status="PASS" starttime="20231031 16:09:41.993" endtime="20231031 16:09:42.283"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:41.970" endtime="20231031 16:09:42.283"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231031 16:09:42.284" level="INFO">Clicking element 'id:submit'.</msg>
+<status status="PASS" starttime="20231031 16:09:42.283" endtime="20231031 16:09:42.336"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:41.969" endtime="20231031 16:09:42.337"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:41.485" endtime="20231031 16:09:42.337"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:41.485" endtime="20231031 16:09:42.337"/>
+</kw>
+<kw name="Então deve ser exibido alerta de erro" library="login_keyworks">
+<kw name="Verificar se exibe alerta com erro" library="login_keyworks">
+<arg>User validation failed: email: Email is invalid, password: Path `password` (`ç`) is shorter than the minimum allowed length (7).</arg>
+<kw name="Click If Element Is Visible" library="common_keywords">
+<arg>${BTN_SUBMIT}</arg>
+<kw name="Mouse Over If Element Is Visible" library="common_keywords">
+<arg>${element_locator}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231031 16:09:42.339" endtime="20231031 16:09:42.366"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20231031 16:09:42.367" level="INFO">Simulating Mouse Over on element 'id:submit'.</msg>
+<status status="PASS" starttime="20231031 16:09:42.366" endtime="20231031 16:09:42.642"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:42.339" endtime="20231031 16:09:42.642"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231031 16:09:42.644" level="INFO">Clicking element 'id:submit'.</msg>
+<status status="PASS" starttime="20231031 16:09:42.643" endtime="20231031 16:09:42.703"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:42.339" endtime="20231031 16:09:42.703"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${ERROR_ALERT}</arg>
+<arg>${text}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20231031 16:09:42.706" level="INFO">Verifying element 'css:#error' contains exact text 'User validation failed: email: Email is invalid, password: Path `password` (`ç`) is shorter than the minimum allowed length (7).'.</msg>
+<status status="PASS" starttime="20231031 16:09:42.704" endtime="20231031 16:09:42.738"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:42.338" endtime="20231031 16:09:42.738"/>
+</kw>
+<kw name="Deve cancelar cadastro" library="login_keyworks">
+<kw name="Click If Element Is Visible" library="common_keywords">
+<arg>${BTN_CANCEL}</arg>
+<kw name="Mouse Over If Element Is Visible" library="common_keywords">
+<arg>${element_locator}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231031 16:09:42.740" endtime="20231031 16:09:42.763"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20231031 16:09:42.764" level="INFO">Simulating Mouse Over on element 'CSS:#cancel'.</msg>
+<status status="PASS" starttime="20231031 16:09:42.763" endtime="20231031 16:09:43.036"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:42.739" endtime="20231031 16:09:43.037"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231031 16:09:43.038" level="INFO">Clicking element 'CSS:#cancel'.</msg>
+<status status="PASS" starttime="20231031 16:09:43.037" endtime="20231031 16:09:43.317"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:42.739" endtime="20231031 16:09:43.317"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:42.739" endtime="20231031 16:09:43.318"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:42.337" endtime="20231031 16:09:43.318"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:40.889" endtime="20231031 16:09:43.318"/>
+</test>
+<test id="s1-s1-s1-t4" name="Cenário 4: Deve exibir erro ao preencher com numero de caracteres maior que 20" line="28">
+<kw name="Dado que o usuário esteja na página do Automationtesting" library="login_keyworks">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Contact List App</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20231031 16:09:43.328" level="INFO">Page title is 'Contact List App'.</msg>
+<status status="PASS" starttime="20231031 16:09:43.321" endtime="20231031 16:09:43.328"/>
+</kw>
+<kw name="Clicar para cadastrar conta" library="login_keyworks">
+<kw name="Click If Element Is Visible" library="common_keywords">
+<arg>${BTN_SIGNUP}</arg>
+<kw name="Mouse Over If Element Is Visible" library="common_keywords">
+<arg>${element_locator}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231031 16:09:43.330" endtime="20231031 16:09:43.358"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20231031 16:09:43.359" level="INFO">Simulating Mouse Over on element 'id:signup'.</msg>
+<status status="PASS" starttime="20231031 16:09:43.358" endtime="20231031 16:09:43.632"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:43.330" endtime="20231031 16:09:43.632"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231031 16:09:43.634" level="INFO">Clicking element 'id:signup'.</msg>
+<status status="PASS" starttime="20231031 16:09:43.633" endtime="20231031 16:09:43.909"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:43.329" endtime="20231031 16:09:43.909"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:43.329" endtime="20231031 16:09:43.909"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:43.321" endtime="20231031 16:09:43.910"/>
+</kw>
+<kw name="Quando preencher campos de cadastro com 21 caracteres" library="login_keyworks">
+<kw name="Adicionar dados para cadastro" library="login_keyworks">
+<arg>abcdefghijlmnopqrstug</arg>
+<arg>abcdefghijlmnopqrstug</arg>
+<arg>abcdefghijlmnopqrstug@gmail.com</arg>
+<arg>abcdefghijlmnopqrstug</arg>
+<kw name="Input Text If Element Is Visible" library="common_keywords">
+<arg>${INPUT_FIRSTNAME}</arg>
+<arg>${firstName}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231031 16:09:43.912" endtime="20231031 16:09:43.944"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231031 16:09:43.945" level="INFO">Typing text 'abcdefghijlmnopqrstug' into text field 'id:firstName'.</msg>
+<status status="PASS" starttime="20231031 16:09:43.944" endtime="20231031 16:09:44.058"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:43.911" endtime="20231031 16:09:44.059"/>
+</kw>
+<kw name="Input Text If Element Is Visible" library="common_keywords">
+<arg>${INPUT_LASTNAME}</arg>
+<arg>${lastName}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231031 16:09:44.059" endtime="20231031 16:09:44.086"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231031 16:09:44.088" level="INFO">Typing text 'abcdefghijlmnopqrstug' into text field 'id:lastName'.</msg>
+<status status="PASS" starttime="20231031 16:09:44.087" endtime="20231031 16:09:44.198"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:44.059" endtime="20231031 16:09:44.198"/>
+</kw>
+<kw name="Input Text If Element Is Visible" library="common_keywords">
+<arg>${INPUT_EMAIL}</arg>
+<arg>${email}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231031 16:09:44.200" endtime="20231031 16:09:44.230"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231031 16:09:44.232" level="INFO">Typing text 'abcdefghijlmnopqrstug@gmail.com' into text field 'id:email'.</msg>
+<status status="PASS" starttime="20231031 16:09:44.230" endtime="20231031 16:09:44.349"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:44.199" endtime="20231031 16:09:44.350"/>
+</kw>
+<kw name="Input Text If Element Is Visible" library="common_keywords">
+<arg>${INPUT_PASSWORD}</arg>
+<arg>${password}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231031 16:09:44.350" endtime="20231031 16:09:44.374"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231031 16:09:44.375" level="INFO">Typing text 'abcdefghijlmnopqrstug' into text field 'id:password'.</msg>
+<status status="PASS" starttime="20231031 16:09:44.374" endtime="20231031 16:09:44.476"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:44.350" endtime="20231031 16:09:44.476"/>
+</kw>
+<kw name="Click If Element Is Visible" library="common_keywords">
+<arg>${BTN_SUBMIT}</arg>
+<kw name="Mouse Over If Element Is Visible" library="common_keywords">
+<arg>${element_locator}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231031 16:09:44.477" endtime="20231031 16:09:44.501"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20231031 16:09:44.502" level="INFO">Simulating Mouse Over on element 'id:submit'.</msg>
+<status status="PASS" starttime="20231031 16:09:44.501" endtime="20231031 16:09:44.781"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:44.477" endtime="20231031 16:09:44.781"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231031 16:09:44.783" level="INFO">Clicking element 'id:submit'.</msg>
+<status status="PASS" starttime="20231031 16:09:44.782" endtime="20231031 16:09:44.839"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:44.476" endtime="20231031 16:09:44.839"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:43.911" endtime="20231031 16:09:44.839"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:43.910" endtime="20231031 16:09:44.839"/>
+</kw>
+<kw name="Então deve ser exibido alerta de erro de caracteres" library="login_keyworks">
+<kw name="Verificar se exibe alerta com erro" library="login_keyworks">
+<arg>User validation failed: firstName: Path `firstName` (`abcdefghijlmnopqrstug`) is longer than the maximum allowed length (20)., lastName: Path `lastName` (`abcdefghijlmnopqrstug`) is longer than the maximum allowed length (20).</arg>
+<kw name="Click If Element Is Visible" library="common_keywords">
+<arg>${BTN_SUBMIT}</arg>
+<kw name="Mouse Over If Element Is Visible" library="common_keywords">
+<arg>${element_locator}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231031 16:09:44.842" endtime="20231031 16:09:44.871"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20231031 16:09:44.872" level="INFO">Simulating Mouse Over on element 'id:submit'.</msg>
+<status status="PASS" starttime="20231031 16:09:44.871" endtime="20231031 16:09:45.146"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:44.842" endtime="20231031 16:09:45.146"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231031 16:09:45.147" level="INFO">Clicking element 'id:submit'.</msg>
+<status status="PASS" starttime="20231031 16:09:45.146" endtime="20231031 16:09:45.202"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:44.841" endtime="20231031 16:09:45.202"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${ERROR_ALERT}</arg>
+<arg>${text}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20231031 16:09:45.204" level="INFO">Verifying element 'css:#error' contains exact text 'User validation failed: firstName: Path `firstName` (`abcdefghijlmnopqrstug`) is longer than the maximum allowed length (20)., lastName: Path `lastName` (`abcdefghijlmnopqrstug`) is longer than the maximum allowed length (20).'.</msg>
+<status status="PASS" starttime="20231031 16:09:45.203" endtime="20231031 16:09:45.227"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:44.840" endtime="20231031 16:09:45.227"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:44.840" endtime="20231031 16:09:45.227"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:43.319" endtime="20231031 16:09:45.227"/>
+</test>
+<kw name="Fechar Browser" library="common_keywords" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20231031 16:09:45.229" endtime="20231031 16:09:45.321"/>
+</kw>
+<status status="PASS" starttime="20231031 16:09:45.229" endtime="20231031 16:09:45.321"/>
+</kw>
+<doc>Automação de Testes de Formulário de Registro com Robot Framework</doc>
+<status status="PASS" starttime="20231031 16:09:32.268" endtime="20231031 16:09:45.321"/>
+</suite>
+<status status="PASS" starttime="20231031 16:09:32.266" endtime="20231031 16:09:45.328"/>
+</suite>
+<status status="PASS" starttime="20231031 16:09:32.236" endtime="20231031 16:09:45.330"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="4" fail="0" skip="0" id="s1" name="Tests">Tests</stat>
+<stat pass="4" fail="0" skip="0" id="s1-s1" name="Login">Tests.Login</stat>
+<stat pass="4" fail="0" skip="0" id="s1-s1-s1" name="Login">Tests.Login.Login</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
